@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BTGClient.Views.ClientListPage"           
+             Title="Client List"
+             >
+    <Grid>
+        <ListView Grid.Row="0" BackgroundColor="LightGray"  ItemsSource="{Binding Clients}" Margin="10" WidthRequest="700" IsVisible="{Binding ListVisible}" HorizontalOptions="CenterAndExpand" ItemSelected="ListView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Margin="10" Padding="5" CornerRadius="10" BorderColor="Black" HeightRequest="100" WidthRequest="400" BackgroundColor="Red">
+                            <VerticalStackLayout>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Nome: "/>
+                                                <Span Text="{Binding Name}" FontAttributes="Bold"/>
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Sobrenome: "/>
+                                                <Span Text="{Binding LastName}" FontAttributes="Bold"/>
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Idade: "/>
+                                                <Span Text="{Binding Age}" FontAttributes="Bold"/>
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Label>
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <FormattedString.Spans>
+                                                <Span Text="Endereço: "/>
+                                                <Span Text="{Binding Address}" FontAttributes="Bold"/>
+                                            </FormattedString.Spans>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <Button Text="Novo Cliente" HorizontalOptions="Center" Margin="10" CornerRadius="10" Background="Gray" FontAttributes="Bold" TextColor="White" Command="{Binding NavigationCommand}" IsVisible="TRUE"/>
+            </ListView.Footer>
+        </ListView>
+        <Grid Grid.Row="0" IsVisible="{Binding LabelIsVisible}">
+            <Label Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center" Text="Nenhum Cliente Cadastrado" TextColor="LightGray" FontSize="Large"/>
+            <Button Grid.Row="1" VerticalOptions="End" Text="Novo Cliente" HorizontalOptions="Center" Margin="10" CornerRadius="10" Background="Gray" FontAttributes="Bold" TextColor="White" Command="{Binding NavigationCommand}" IsVisible="TRUE"/>
+        </Grid>
+        
+    </Grid>
+    
+</ContentPage>
