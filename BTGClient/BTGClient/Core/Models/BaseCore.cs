@@ -14,6 +14,6 @@ namespace BTGClient.Core.Models
         [Column("inclusion_date")]
         public DateTime  InclusionDate { get;  set; } = DateTime.Now;
         [Column("change_date")]
-        public DateTime ChangeDate { get;  set; }
+        public DateTime ChangeDate { get; set; } = DateTime.Now;
     }
 }

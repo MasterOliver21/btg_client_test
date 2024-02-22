@@ -14,5 +14,8 @@ namespace BTGClient.Core.Models
         public string State { get; set; }
         [Column("client_id")]
         public Guid ClientId { get; set; }
+
+        [Ignore]
+        public virtual Client Client { get; set; }
     }
 }

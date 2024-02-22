@@ -21,7 +21,7 @@ namespace BTGClient.Core.Models
 
         public Client()
         {
-           //EF
+           
         }
         public Client(string name, string lastName, int age)
         {
