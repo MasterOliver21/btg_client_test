@@ -18,6 +18,8 @@ namespace BTGClient.ViewModels
         [ObservableProperty]
         private bool _deleteButtonVisible;
 
+        private bool _new;
+
         public ClientViewModel(IClientRepository clientRepository)
         {
             _clientRepository = clientRepository;
@@ -37,7 +39,12 @@ namespace BTGClient.ViewModels
                     throw new Exception("Idade não preenchida corretamente.");
                 else if (NewClient.Address is null)
                     throw new Exception("Endereço não preenchido.");
-                _clientRepository.Insert(NewClient);
+
+                if(_new)
+                    _clientRepository.Insert(NewClient);
+                else
+                    _clientRepository.Update(NewClient);
+
                 await Shell.Current.DisplayAlert("Aviso!", "Cliente salvo com sucesso!", "Ok");
                 await Back();
             }
@@ -79,9 +86,16 @@ namespace BTGClient.ViewModels
         {
             var value = query["client"];
             if (value is Client && (value as Client).Name is null)
+            {
                 DeleteButtonVisible = false;
+                _new = true;
+            }
+
             else
+            {
                 DeleteButtonVisible = true;
+                _new = false;
+            }
 
         }
 

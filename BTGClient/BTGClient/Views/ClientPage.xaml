@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BTGClient.Views.ClientPage"
-             Title="ClientPage">
+             Title="Client">
     <VerticalStackLayout BackgroundColor="LightGray" Spacing="10" Padding="10">
         <Button Text="Back" HorizontalOptions="Start" BackgroundColor="Transparent" TextColor="Purple" FontAttributes="Bold" Command="{Binding BackCommand}"/>
         <Label Text="Nome" TextColor="Black"/>
@@ -13,10 +13,10 @@
         <Entry Text="{Binding NewClient.Age}" TextColor="Black" TextChanged="Entry_TextChanged"/>
         <Label Text="Endereço" TextColor="Black"/>
         <Entry Text="{Binding NewClient.Address}" TextColor="Black"/>
-        <StackLayout>
+        <Grid>
             <Button Text="Salvar" HorizontalOptions="Start" WidthRequest="100" TextColor="Black" Command="{Binding SaveNewClientCommand}"/>
             <Button Text="Excluir" HorizontalOptions="End" WidthRequest="100" TextColor="Black" Command="{Binding DeleteClientCommand}" IsVisible="{Binding DeleteButtonVisible}"/>
-        </StackLayout>
+        </Grid>
         
     </VerticalStackLayout>
 </ContentPage>
